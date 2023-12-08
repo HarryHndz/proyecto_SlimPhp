@@ -1,0 +1,81 @@
+{% extends 'main2.html' %}
+{% block main %}
+
+    <link rel="stylesheet" href="./assets/css/plantParques.css">
+    <link rel="stylesheet" href="./assets/css/styMap.css">
+    
+    <script src="./assets/js/apiMapas.js"></script>
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <img src="./assets/img/{{plantParques.imagenParque}}" alt="" width="100%">
+            </div>
+            <div class="col-4">
+                <img src="./assets/img/{{plantParques.imagenParque}}" alt="" width="100%">
+                <img src="./assets/img/{{plantParques.imagenParque}}" alt="" width="100%">
+            </div>
+
+        </div>
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <h1>{{plantParques.nombre}}</h1>      
+                <h3>Precio por persona desde: {{plantParques.precio}}</h3>
+                <h2></h2>
+            </div>
+        </div>
+            <div class="col-8">
+                <div class="row">
+                    <div class="col-9">
+                        <h4>Elige las opciones que se adecuen a ti :</h4>
+                        <p></p>
+                        <p>Duración: 10 Hrs <br>
+                        Disponible todo los días <br>
+                        Hora: 8:00 AM.
+                        </p>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-success" type="button">Comprar</button>
+                            <button class="btn btn-success" type="button">Agregar</button>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+
+            </div>
+        </div>
+
+    </div>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-5">
+                <h2>Descripcion: {{plantParques.descripcion}} </h2>
+                <p id="direccion">tabasco</p>
+            </div>
+            
+        </div>
+    </div>
+    <div class="contMapa">
+        <h2 class="titulo2">ubicacion del parque</h2>
+        <div class="mapita">
+            <div id="map" class="map">
+
+            </div>
+        </div>
+    </div>
+    <script async src={{maps}}></script>
+
+{% endblock %}

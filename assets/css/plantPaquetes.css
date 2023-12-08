@@ -1,0 +1,22 @@
+.col-5{
+    word-wrap: break-word !important;
+}
+
+.col-7 iframe{
+    width: 750px;
+    height: 600px;
+}
+
+.container{
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+.col-3{
+    background-color: #dedede;
+    border-radius: 10px;
+    height: 125px;
+}
+.col-3 h3{
+    text-align: center;
+}

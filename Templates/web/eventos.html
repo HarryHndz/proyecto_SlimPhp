@@ -1,0 +1,38 @@
+{% extends 'main2.html' %}
+{% block main %}
+
+<br>
+<br>
+<div class="container">
+    <h1>Eventos próximos a realizarse.</h1>
+    <p>La gama de escenarios turísticos que tiene México, desde naturales y culturales hasta las grandes ciudades, así como la <br>
+    calidez de su gente, lo convierten en el país idóneo para llevar a cabo eventos de alto impacto a nivel internacional. <br><br>
+    Este es nuestro calendario oficial, aqui podrá conocer los eventos <br>
+    y fiestas programadas que se realizaran en todo el año.
+    </p>
+</div>
+
+<br>
+<br>
+
+
+<div class="container">
+    <div class="calendario">
+        <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=2&bgcolor=%23A79B8E&ctz=America%2FMexico_City&title=Eventos%20Pr%C3%B3ximos%20a%20Realizarse&showPrint=0&showTabs=1&showTz=0&showCalendars=0&showNav=1&src=Y2UxM2YxMGI1YzIyODkxZmY1ZWU2MTQ5ZDQ4MGRhMDViMDlkYjA5MjdlZDkxOWQ0NGQ4MWM1MWY2NWZkOWNkY0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%239E69AF" style="border-width:0" width="900" height="600" frameborder="0" scrolling="no"></iframe>
+    </div>
+    
+</div>
+<br>
+<br>
+<style>
+    .container{
+        text-align: center;
+    }
+
+    
+    .calendario{
+        display: inline-block;
+    }
+</style>
+
+{% endblock %}

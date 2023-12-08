@@ -1,0 +1,167 @@
+{% extends 'main.html' %}
+
+{% block main %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            {% if idActulizar is null %}
+            <h3>Agregar hoteles:</h3>
+            <form method="POST" action="agregarHot" enctype="multipart/form-data">
+
+                <div class = "form-group">
+                <label for="txtNombre">Nombre:</label>
+                <input type="text"  class="form-control" name="txtNombre"id="txtNombre" placeholder="Ingrese el nombre" value="{{datos['txtNombre']}}">
+                </div>
+
+                <div class = "form-group">
+                <label for="txtPrecio">Precio:</label>
+                <input type="text"  class="form-control" name="txtPrecio"id="txtPrecio" placeholder="Ingrese el precio" value="{{datos['txtPrecio']}}">
+                </div>
+                <br>
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="txtHabitaciones">Habitaciones</label>
+                    
+                    <select class="form-select" id="txtHabitaciones" name="txtHabitaciones">
+                        <option selected disabled>{{datos['txtHabitaciones']}}</option>
+                        <option name="txtHabitaciones" value="1 habitación">1 Habitación</option>
+                        <option name="txtHabitaciones" value="2 habitaciones">2 Habitacines</option>
+                        <option name="txtHabitaciones" value="3 habitaciones">3 Habitaciones</option>
+                    </select>
+                </div>
+
+                <div class = "form-group">
+                <label for="txtDescripcion" class="form-label">Descripción: </label>
+                <textarea  class="form-control" id="txtDescripcion" rows="3" name="txtDescripcion" value="">{{datos['txtDescripcion']}}</textarea>               
+                </div>
+
+                <br>
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="txtTipoHotel">Tipo de Hospedaje:</label>
+                    <select class="form-select" id="txtTipoHotel" name="txtTipoHotel">
+                        <option selected disabled>{{datos['txtTipoHotel']}}</option>
+                        <option name="txtTipoHotel" value="hotel">hotel</option>
+                        <option name="txtTipoHotel" value="cabaña">cabaña</option>
+                        <option name="txtTipoHotel" value="hostal">hostal</option>
+                    </select>
+                </div>
+                
+                <div class = "form-group">
+                <label for="txtDireccion" class="form-label">Dirección: </label>
+                <textarea  class="form-control" id="txtDireccion" rows="3" name="txtDireccion" value="">{{datos['txtDireccion']}}</textarea>               
+                </div>
+
+                <div class = "form-group">
+                <label for="txtServicios" class="form-label">Servicios: </label>
+                <textarea  class="form-control" id="txtServicios" rows="3" name="txtServicios" value="">{{datos['txtServicios']}}</textarea>               
+                </div>
+
+                <div class = "form-group">
+                    <label for="imgHotel">imagen:</label>
+                    <br>
+                        <img src="./assets/img/" alt="" width="50" height="50">  
+                    <input type="file" class="form-control" name="imgHotel"id="imgHotel" placeholder="Ingresa la imagen">
+                </div>
+                
+                <br>
+                
+                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                    <button type="submit" class="btn btn-success" name="accion" value="agregarHot">Agregar</button>
+                </div>
+            </form>
+                {% if vacio %}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Rellene los campos 
+                        <ul>
+                            {% for campo in vacio %}
+                                <li>{{ campo }}</li>
+                            {% endfor %}
+                        </ul>
+                    </strong> 
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endif %}
+                
+                {% if imgNula %}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Inserte una imagen</strong> 
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endif %}
+
+
+            {% else %}
+            <h3>actualizar hoteles:</h3>
+            <form method="POST" action="actualizarHot" enctype="multipart/form-data">
+                {% for hotelantes in idActulizar %}
+                <div class ="form-group">
+                <label for="txtID">Id</label>
+                <input type="text" required readonly class="form-control" name="txtID"id="txtID" placeholder="Ingrese el id" value="{{hotelantes.id_hospedaje}}">
+                </div>
+
+                <div class = "form-group">
+                <label for="txtNombre">Nombre:</label>
+                <input type="text" required class="form-control" name="txtNombre"id="txtNombre" placeholder="Ingrese el nombre" value="{{hotelantes.nombre}}">
+                </div>
+
+                <div class = "form-group">
+                <label for="txtPrecio">Precio:</label>
+                <input type="text" required class="form-control" name="txtPrecio"id="txtPrecio" placeholder="Ingrese el precio" value="{{hotelantes.precio}}">
+                </div>
+                <br>
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="txtHabitaciones">Habitaciones</label>
+                    
+                    <select class="form-select" id="txtHabitaciones" name="txtHabitaciones">
+                        <option selected disabled>{{hotelantes.habitaciones}}</option>
+                        <option name="txtHabitaciones" value="1 habitación">1 Habitación</option>
+                        <option name="txtHabitaciones" value="2 habitaciones">2 Habitacines</option>
+                        <option name="txtHabitaciones" value="3 habitaciones">3 Habitaciones</option>
+                    </select>
+                </div>
+
+                <div class = "form-group">
+                <label for="txtDescripcion" class="form-label">Descripción: </label>
+                <textarea required class="form-control" id="txtDescripcion" rows="3" name="txtDescripcion" value="">{{hotelantes.descripcion}}</textarea>               
+                </div>
+
+                <br>
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="txtTipoHotel">Tipo de Hospedaje:</label>
+                    <select class="form-select" id="txtTipoHotel" name="txtTipoHotel">
+                        <option selected disabled>{{hotelantes.tipo_hospedaje}}</option>
+                        <option name="txtTipoHotel" value="hotel">hotel</option>
+                        <option name="txtTipoHotel" value="cabaña">cabaña</option>
+                        <option name="txtTipoHotel" value="hostal">hostal</option>
+                    </select>
+                </div>
+                
+                <div class = "form-group">
+                <label for="txtDireccion" class="form-label">Dirección: </label>
+                <textarea required class="form-control" id="txtDireccion" rows="3" name="txtDireccion" value="">{{hotelantes.direccion}}</textarea>               
+                </div>
+
+                <div class = "form-group">
+                <label for="txtServicios" class="form-label">Servicios: </label>
+                <textarea required class="form-control" id="txtServicios" rows="3" name="txtServicios" value="">{{hotelantes.servicios}}</textarea>               
+                </div>
+
+                <div class = "form-group">
+                    <label for="imgHotel">imagen:</label>
+                    <br>
+                        <img src="./assets/img/{{hotelantes.imagenHotel}}" alt="" width="50" height="50">  
+                    <input type="file" class="form-control" name="imgHotel"id="imgHotel" placeholder="Ingresa la imagen">
+                </div>
+                
+                <br>
+                
+                <form method="post" action="actualizarHot">
+                    <button type="submit" class="btn btn-warning" name="accion" value="actualizarPaq">actualizar</button>
+                </form>
+                {% endfor %}
+            </form>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

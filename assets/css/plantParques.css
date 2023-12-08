@@ -1,0 +1,9 @@
+.col-5{
+    word-wrap: break-word !important;
+}
+
+.col-7 iframe{
+    width: 750px;
+    height: 600px;
+}
+

@@ -1,0 +1,73 @@
+{% extends 'main2.html' %}
+
+{% block main %}
+    <link rel="stylesheet" href="./assets/css/Infop.css">
+    <link rel="stylesheet" href="./assets/css/styMap.css">
+    <script src="./assets/js/apiMapas.js"></script>
+    <script src="./assets/js/apiYutu.js"></script>
+
+        <div id="carouselExampleFade" class="carousel slide carousel-fade">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./assets/carruImg/Tab1.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="./assets/carruImg/Tab2.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="./assets/carruImg/Tab3.jpg" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-8">
+                    <h1 class="titulo" id="direccion">Tabasco</h1>
+                    <p class="info">Es agua y energía. Su ubicación lo convierte en la puerta de entrada al sureste mexicano y al Mundo Maya, epicentro de la industria petrolera y centro regional
+                    de entretenimiento, servicios y comunicaciones. Posee el 53% de agua de todo el país.
+                    Ocupa el primer lugar en producción de cacao y ganadería; y el segundo lugar en producción de plátano.
+                    Su escasa altitud y el clima cálido y húmedo, conforman un paisaje irreverentemente verde y tropical, surcado por ríos, y ocupado por extensas lagunas, 
+                    numerosas zonas de pantanos y hermosas playas que ofrecen al visitante un paraíso para la pesca deportiva, el avistamiento de aves, ecoturismo y turismo de aventura, entre otras actividades, y su capital es Villahermosa.
+                    </p>
+                </div>
+                <div class="col-4">
+                    <img src="./assets/carruImg/Tab0.jpg" alt="">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="contMapa">
+            <h2 class="titulo2">Para conocer más de Tabasco</h2>
+            <div class="mapita">
+                <div id="map" class="map">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <img src="{{apiClima[0]}}" alt="">
+            <p> La temperatura es de : {{apiClima[1]}}</p>
+            <p>La humedad es de: {{apiClima[2]}}</p>
+        </div>
+
+        <div class="container">
+            <h2 class="titulo2">Descubre Tabasco:</h2>
+            
+            <div id="player"></div>
+            
+            <input id="idVideo" name="prodId" type="hidden" value="{{video}}" />
+
+        </div>
+        <script async src={{maps}}></script>
+{% endblock %}

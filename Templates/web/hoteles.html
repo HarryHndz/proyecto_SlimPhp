@@ -1,0 +1,54 @@
+{% extends 'main2.html' %}
+{% block main %}
+<link rel="stylesheet" href="./assets/css/styHoteles.css">
+<div class="BuscadorHoteles">
+    <h1>Encuentra El Mejor Hospedaje</h1>
+    <br>
+    <div class="FormHoteles">
+        <form action="">
+            <input type="text" placeholder="Destino" id="DesHabi" name="">
+            <input type="number" id="DesHabi" name="" placeholder="Habitaciones">
+            <input type="date" name="" id="fecha" >
+            <button class="BntHotel"><span class="material-symbols-outlined">search</span></button>
+    </form>
+    </div>
+    
+</div>
+
+<div class="container">
+    <div class="infoHotel">
+        <h2>Aprovecha las mejores ofertas en hospedaje</h2>
+        <p>Inicia sesión o regístrate <br>
+        para tener un descuento del 10% <br>
+        en tu primera reservación en hospedaje </p>
+        <br>
+        <button type="button" class="iniciosec">Iniciar Sesión</button>
+    </div>
+</div>
+
+<div class="listaHoteles">
+    <h3>Los mejores hoteles del Sureste de México</h3>
+    {% for datosHotel in datosHoteles %}
+    <div class="card mb-3" style="max-width: 700px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="./assets/img/{{datosHotel.imagenHotel}}" class="img-fluid rounded-start" alt="..." style="height: 269px;">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title" >{{datosHotel.nombre}}</h5>
+                    <p class="card-text">{{datosHotel.descripcion}}</p>
+                    <p class="card-text"><small class="text-body-secondary">{{datosHotel.precio}}</small></p>
+                    <a class="btn btn-success" href="hotel{{datosHotel.id_hospedaje}}" role="button">Ver detalles</a>
+                    <!-- <form action="plantillaHotel" method="post">
+                        <input type="hidden" name="id_Hotel" value="{{ datosHotel.id_hospedaje }}">
+                        <button type="submit" class="btn btn-success">Ver detalles</button>
+                    </form> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

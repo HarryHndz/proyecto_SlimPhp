@@ -1,0 +1,26 @@
+.detalles{
+    width: 80%;
+    height: 320px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-left: 120px;
+    border-style:solid;
+    border-color: #cacaca;
+    border-radius: 10px;
+    background-color: #d4d4d4 ;
+}
+
+.detalles ul li{
+    list-style-type: none;
+    margin-left: 20px;
+    font-size: 25px;
+}
+.detalles span{
+    padding-right: 10px;
+}
+.detalles h6{
+    margin-top: 10px;
+    margin-left: 46px;
+    font-size: 35px;
+    font-weight: bold;
+}

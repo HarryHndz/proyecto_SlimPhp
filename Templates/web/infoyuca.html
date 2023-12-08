@@ -1,0 +1,71 @@
+{% extends 'main2.html' %}
+
+{% block main %}
+    <link rel="stylesheet" href="./assets/css/Infop.css">
+    <link rel="stylesheet" href="./assets/css/styMap.css">
+    <script src="./assets/js/apiMapas.js"></script>
+    <script src="./assets/js/apiYutu.js"></script>
+        <div id="carouselExampleFade" class="carousel slide carousel-fade">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./assets/carruImg/yuca1.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="./assets/carruImg/yuca2.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="./assets/carruImg/yuca3.jpg" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-8">
+                    <h1 class="titulo" id="direccion">Yucatán</h1>
+                    <p class="info">En Yucatán puedes combinar historia, cultura, romance, gastronomía, playas y la oportunidad única de sumergirte en una comunidad del pueblo Maya.
+                    Desde sabores locales memorables hasta sitios imperdibles, reconocidos internacionalmente, el estado de Yucatán se destaca con una vitalidad propia.
+                    Ya sea el azul cristalino profundo de un cenote aparentemente sin fondo, el verde audaz de la exuberante selva que cubre los sitios arqueológicos mayas o el llamativo tono rosa que brindan los flamencos de la región, en una zona colorida de México que vale la pena visitar.
+                    </p>
+                </div>
+                <div class="col-4">
+                    <img src="./assets/carruImg/yuca0.jpg" alt="">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="contMapa">
+            <h2 class="titulo2">Para conocer más de Yucatán</h2>
+            <div class="mapita">
+                <div id="map" class="map">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <img src="{{apiClima[0]}}" alt="">
+            <p> La temperatura es de : {{apiClima[1]}}</p>
+            <p>La humedad es de: {{apiClima[2]}}</p>
+        </div>
+        
+        <div class="container">
+            <h2 class="titulo2">Descubre Yucatán:</h2>
+            
+        <div id="player"></div>
+        </div>
+        
+        <input id="idVideo" name="prodId" type="hidden" value="{{video}}" />
+        <script async src={{maps}}></script>
+
+
+{% endblock %}

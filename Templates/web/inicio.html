@@ -1,0 +1,209 @@
+{% extends 'main2.html' %}
+{% block main %}
+<link rel="stylesheet" href="./assets/css/stini.css">
+<link rel="stylesheet" href="./assets/css/prueba.css">
+<script src="./assets/js/apiMapas.js"></script>
+<div class="bus">
+    <h1>¿Qué lugares deseas visitar?</h1>
+    <form action="" method="GET" role="search">
+        <input type="text" placeholder="Encuentra los mejores lugares" class="busca" name="busqueda">
+        <button class="btnbus" type="submit" ><span class="material-symbols-outlined">search</span></button>
+    </form>
+</div>
+
+<h2 class="p-of">¡Encuentra las mejores ofertas!</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <div class="card" style="width: 18rem;">
+                <img src="./assets/img/cancun.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Cancun</h5>
+                    <p class="card-text">Conoce unos de los lugares más populares de México.</p>
+                    <a href="#" class="btn btn-success">Más información</a>
+                </div>
+            
+            </div>
+        </div>
+
+        <div class="col-3">
+            <div class="card" style="width: 18rem;">
+                <img src="./assets/img/huatulco.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Huatulco</h5>
+                    <p class="card-text">Disfruta de  Huatulco y sus hermosas playas.</p>
+                    <a href="#" class="btn btn-success">Más información</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card" style="width: 18rem;">
+                <img src="./assets/img/rivera.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Rivera Maya</h5>
+                    <p class="card-text">Ven y disfruta de las grandes sorpresas de la rivera maya.</p>
+                    <a href="#" class="btn btn-success">Más información</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card" style="width: 18rem;">
+                <img src="./assets/img/meridad.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Merida</h5>
+                    <p class="card-text">Explora las maravillas de la Peninsula de Yucatan.</p>
+                    <a href="#" class="btn btn-success">Más información</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <div class="card" style="width: 18rem;">
+                <img src="./assets/img/playacarmen.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Playa del Carmen</h5>
+                    <p class="card-text">Destino para los amantes del sol, el mar y la diversión.</p>
+                    <a href="#" class="btn btn-success">Más información</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3">
+            <div class="card" style="width: 18rem;">
+                <img src="./assets/img/chichen.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">chichén Itzá</h5>
+                    <p class="card-text">Conoce uno de lo sitios más importantes de México.</p>
+                    <a href="#" class="btn btn-success">Más información</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card" style="width: 18rem;">
+                <img src="./assets/img/palenque2.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Palenque</h5>
+                    <p class="card-text">Conoce uno de los parques más inponentes de México.</p>
+                    <a href="#" class="btn btn-success">Más información</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card" style="width: 18rem;">
+                <img src="./assets/img/cancun.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Cancun</h5>
+                    <p class="card-text">Conoce unos de los lugares más populares de México.</p>
+                    <a href="#" class="btn btn-success">Más información</a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <h5>Ruta Maya</h5>
+            <br>
+            <h6>Ven y conoce el Sureste de México</h6>
+            <p>Conoce las rutas turisticas de los cinco estados de Sureste de México.</p>
+            <p>De los cuales tendran conección con el Tren Maya y poder disfrutar de una gran experiencia</p>
+            <br>
+            <ul>
+                <li>Paleque-Escárcega</li>
+                <li>Escarcega-Kalkini</li>
+                <li>Kalkini-Izamal</li>
+                <li>Izamal-Cancún</li>
+                <li>Cancún-Playa del Carmen</li>
+                <li>Playa del Carmen-Tulum</li>
+                <li>Tulum-Chetumal</li>
+                <li>Chetumal-Escárcega</li>
+            </ul>
+        </div>
+        <div class="col-9">
+            <div id="carouselExampleFade" class="carousel slide carousel-fade">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="./assets/img/playa1.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Visita nuestras hermosas playas</h5>
+                            <p class="p-p">Conoce y disfruta de las mejores playas.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./assets/img/playadelfin2.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Convive con los animales </h5>
+                            <p class="p-p">Ven y conoce a los delfines.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./assets/img/playaatardecer3.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Atardeceres hermosos</h5>
+                            <p class="p-p">Disfruta al atardecer en las mejores playas.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>                    
+            
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<div class="detalles">
+    <h6>¿Quieres conocer más a detalles?</h6>
+    <ul>
+        <li><span class="material-symbols-outlined">
+            location_on
+            </span>Estados del Sureste</li>
+        <li><span class="material-symbols-outlined">
+            bed
+            </span>Hospedaje</li>
+        <li><span class="material-symbols-outlined">
+            beach_access
+            </span>Zonas turisticas</li>
+        <li><span class="material-symbols-outlined">
+            directions_car
+            </span>Transporte</li>
+    </ul>
+    <button type="button" class="btin"> mas info</button>
+</div>
+
+<div class="ini">
+        <h3>¡Ruta del sureste!</h3>
+        <p>Conoce los cinco estados del sureste de mexico y disfuta sus riquezas turisticas por la nueva ruta del tren maya, en los cuales podran visitar Tabasco, Chiapas, Quintana Roo, Campeche y Yucatan.</p>
+</div>
+<div class="container">
+    <iframe width="1150" height="500" src="https://www.youtube.com/embed/vh7K3C7Hm8U?si=BOiqtJe6AeBzak_G" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
+{% endblock %}

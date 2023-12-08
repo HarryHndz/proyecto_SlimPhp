@@ -1,0 +1,63 @@
+{% extends 'main2.html' %}
+{% block main %}
+
+    <link rel="stylesheet" href="./assets/css/plantPaquetes.css">
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <img src="./assets/img/{{plantPaquetes.imagenPaquete}}" alt="" width="100%">
+            </div>
+            <div class="col-4">
+                <img src="./assets/img/{{plantPaquetes.imagenPaquete}}" alt="" width="100%">
+                <img src="./assets/img/{{plantPaquetes.imagenPaquete}}" alt="" width="100%">
+            </div>
+
+        </div>
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="container">
+            <div class="nombrePaquete">
+                <h1>{{plantPaquetes.nombre}}</h1>
+            </div>
+            <div class="row">
+                <div class="col-7">
+                    <h2>{{plantPaquetes.direccion}}</h2>
+                    <h3>Tipo de paquete:</h3>
+                    <p>{{plantPaquetes.tipo_paquete}}</p>
+                </div>
+                <div class="col-3">
+                    <h3>Precio por persona: {{plantPaquetes.precio}}</h3>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn btn-success" type="button">Comprar</button> 
+                    </div>
+                </div>
+                <div class="col-1">
+                </div>
+            </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-5">
+                <h2>Descripción:{{plantPaquetes.descripcion}}</h2>
+                <p></p>
+            </div>
+            <div class="col-7">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d9031.384447968634!2d-92.92379903415808!3d17.87472369017714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2smx!4v1682979926718!5m2!1ses-419!2smx" class=""></iframe>
+            </div>
+            
+        </div>
+    </div>
+
+{% endblock %}

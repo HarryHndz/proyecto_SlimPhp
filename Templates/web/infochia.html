@@ -1,0 +1,72 @@
+{% extends 'main2.html'%}
+
+{% block main %}
+<link rel="stylesheet" href="./assets/css/Infop.css">
+<link rel="stylesheet" href="./assets/css/styMap.css">
+<script src="./assets/js/apiMapas.js"></script>
+<script src="./assets/js/apiYutu.js"></script>
+
+<div id="carouselExampleFade" class="carousel slide carousel-fade">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="./assets/carruImg/chi1.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="./assets/carruImg/chi2.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="./assets/carruImg/chi3.jpg" class="d-block w-100" alt="...">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <h1 class="titulo" id="direccion">Chiapas</h1>
+            <p class="info">Chiapas es una tierra de sensaciones: es sentir el olor profundo del café, es paladear la dulzura de un mango ataúlfo, es ver una parvada de guacamayas en la selva, es oír el interminable correr del agua o palpar la delicadeza de un textil tradicional. 
+            Estas y otras sensaciones se traducen en experiencia, conocimientos y vida, que esperan a los viajeros que recorren Chiapas. Descubre muchas posibilidades de viaje y de servicios a partir de Tuxtla Gutiérrez, San Cristóbal de las Casas, Comitán, Palenque, Tapachula, Tonalá́ y 
+            Chiapa de Corzo. Cada uno de estos destinos es el punto de partida de caminos que conducen a la belleza natural o a los testimonios de las culturas ancestrales que, como la ceiba, poseen raíces profundas.
+            </p>
+        </div>
+        <div class="col-4">
+            <img src="./assets/carruImg/chi0.jpg" alt="">
+        </div>
+    </div>
+
+</div>
+
+<div class="contMapa">
+    <h2 class="titulo2">Para conocer más de Chiapas</h2>
+    <div class="mapita">
+        <div id="map" class="map">
+
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <img src="{{apiClima[0]}}" alt="">
+    <p> La temperatura es de : {{apiClima[1]}}</p>
+    <p>La humedad es de: {{apiClima[2]}}</p>
+</div>
+
+<div class="container">
+    <h2 class="titulo2">Descubre Chiapas:</h2>
+    
+    <div id="player"></div>
+
+</div>
+
+<input id="idVideo" name="prodId" type="hidden" value="{{video}}" />
+<script async src={{maps}}></script>
+
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'main2.html' %}
+{% block main %}
+    <link rel="stylesheet" href="./assets/css/styplnHotel.css">
+    <link rel="stylesheet" href="./assets/css/styMap.css">
+    <script src="./assets/js/apiMapas.js"></script>
+    {% for ho in plantHoteles %}
+    <div class="card text-bg-dark">
+        <img src="./assets/img/{{ho.imagenHotel}}" class="card-img" alt="...">
+        <div class="card-img-overlay">
+            
+            <h1>{{ho.nombre}}</h1>
+            <h2 id="direccion">{{ho.direccion}}</h2>
+            <h3>{{ho.precio}}</h3>
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <a class="btn btn-success" href="#" role="button">Reservar</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <h4>El alojamiento ofrece:</h4>
+                
+                <p>{{ho.servicios}}</p>
+            </div>
+            <div class="col-2">
+
+            </div>
+            <div class="col-7">
+                <h4>Descripcion:</h4>
+                <p>{{ho.descripcion}}</p>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <img src="./assets/img/{{ho.imagenHotel}}" alt="" width="100%">
+            </div>
+            <div class="col-4">
+                <img src="./assets/img/{{ho.imagenHotel}}" alt="" width="100%">
+                <img src="./assets/img/{{ho.imagenHotel}}" alt="" width="100%">
+            </div>
+
+        </div>
+
+    </div>
+            {% endfor %}
+    
+    <div class="contMapa">
+        <h2 class="titulo2">ubicacion del hotel</h2>
+        <div class="mapita">
+            <div id="map" class="map"></div>
+        </div>
+        <div class="" >
+            <img src="{{clima[0]}}" alt="">
+            <p> La temperatura es de : {{clima[1]}}</p>
+            <p>La humedad es de: {{clima[2]}}</p>
+        </div>
+    </div>
+    <script async src={{maps}}></script>
+
+{% endblock %}
+

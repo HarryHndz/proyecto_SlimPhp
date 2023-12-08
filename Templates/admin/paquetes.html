@@ -1,0 +1,142 @@
+{% extends 'main.html' %}
+{% block main %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            {% if idActulizar is null %}
+            <h3>Agregar Paquetes Turisticos:</h3>
+            <form method="POST" action="agregarPaq" enctype="multipart/form-data">
+                <!-- <div class ="form-group">
+                <label for="txtID">Id:</label>
+                <input type="text" required readonly class="form-control" name="txtID"id="txtID" placeholder="Ingrese el id" value="">
+                </div> -->
+
+                <div class = "form-group">
+                <label for="txtNombre">Nombre:</label>
+                <input type="text"  class="form-control" name="txtNombre"id="txtNombre" placeholder="Ingrese el nombre" value="{{datos['txtNombre']}}">
+                </div>
+
+                <div class = "form-group">
+                <label for="txtPrecio">Precio:</label>
+                <input type="text"  class="form-control" name="txtPrecio"id="txtPrecio" placeholder="Ingrese el precio" value="{{datos['txtPrecio']}}">
+                </div>
+                <br>
+                <div class = "form-group">
+                <label for="txtDescripcion" class="form-label">Descripción: </label>
+                <textarea  class="form-control" id="txtDescripcion" rows="3" name="txtDescripcion" value="">{{datos['txtDescripcion']}}</textarea>               
+                </div>
+                <br>
+                <div class = "form-group">
+                <label for="txtServicios" class="form-label">Servicios: </label>
+                <textarea  class="form-control" id="txtServicios" rows="3" name="txtServicios" value="">{{datos['txtServicios']}}</textarea>               
+                </div>
+
+                <br>
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="txtTipoPaquete">Tipo de paquete:</label>
+                    
+                    <select class="form-select" id="txtTipoPaquete" name="txtTipoPaquete">
+                        <option selected disabled>{{datos['txtTipoPaquete']}}</option>
+                        <option name="txtTipoPaquete" value="Familiar">Paquetes Familiar</option>
+                        <option name="txtTipoPaquete" value="Individual">Paquete Individual</option>
+                        <option name="txtTipoPaquete" value="Amigo">Paquete Amigo</option>
+                    </select>
+                </div>
+
+                <div class = "form-group">
+                    <label for="imgPaquete">imagen:</label>
+                    <br>
+                        <img src="./assets/img/{{paqueteSeleccionado.imagenPaquete}}" alt="" width="50" height="50">  
+                    <input type="file" class="form-control" name="imgPaquete"id="imgPaquete" placeholder="Ingresa la imagen">
+                </div>
+
+                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                    <button type="submit" class="btn btn-success" name="accion" value="agregarPaq">Agregar</button>
+                    
+                </div>
+            </form>
+                {% if vacio %}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Rellene los campos 
+                        <ul>
+                            {% for campo in vacio %}
+                                <li>{{ campo }}</li>
+                            {% endfor %}
+                        </ul>
+                    </strong> 
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endif %}
+                
+                {% if imgNula %}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Inserte una imagen</strong> 
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endif %}
+
+            {% else %}
+            <h3>Actualizar Paquete Turistico:</h3>
+            <form method="POST" action="actualizarPaq" enctype="multipart/form-data">
+                {% for paqueteAntes in idActulizar %}
+                <div class ="form-group">
+                <label for="txtID">Id:</label>
+                <input type="text" required readonly class="form-control" name="txtID"id="txtID" placeholder="Ingrese el id" value="{{paqueteAntes.id_paquete}}">
+                </div>
+
+                <div class = "form-group">
+                <label for="txtNombre">Nombre:</label>
+                <input type="text" required class="form-control" name="txtNombre"id="txtNombre" placeholder="Ingrese el nombre" value="{{paqueteAntes.nombre}}">
+                </div>
+
+                <div class = "form-group">
+                <label for="txtPrecio">Precio:</label>
+                <input type="text" required class="form-control" name="txtPrecio"id="txtPrecio" placeholder="Ingrese el precio" value="{{paqueteAntes.precio}}">
+                </div>
+                <br>
+                <div class = "form-group">
+                <label for="txtDescripcion" class="form-label">Descripción: </label>
+                <textarea required class="form-control" id="txtDescripcion" rows="3" name="txtDescripcion" value="">{{paqueteAntes.descripcion}}</textarea>               
+                </div>
+                <br>
+                <div class = "form-group">
+                <label for="txtServicios" class="form-label">Servicios: </label>
+                <textarea required class="form-control" id="txtServicios" rows="3" name="txtServicios" value="">{{paqueteAntes.servicios}}</textarea>               
+                </div>
+
+                <br>
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="txtTipoPaquete">Tipo de paquete:</label>
+                    
+                    <select class="form-select" id="txtTipoPaquete" name="txtTipoPaquete">
+                        <option selected disabled>{{paqueteAntes.tipo_paquete}}</option>
+                        <option name="txtTipoPaquete" value="Familiar">Paquetes Familiar</option>
+                        <option name="txtTipoPaquete" value="Individual">Paquete Individual</option>
+                        <option name="txtTipoPaquete" value="Amigo">Paquete Amigo</option>
+                    </select>
+                </div>
+
+                <div class = "form-group">
+                    <label for="imgPaquete">imagen:</label>
+                    <br>
+                        <img src="./assets/img/{{paqueteAntes.imagenPaquete}}" alt="" width="50" height="50">  
+                    <input type="file" class="form-control" name="imgPaquete"id="imgPaquete" placeholder="Ingresa la imagen">
+                </div>
+
+                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                    <form method="post" action="actualizarPaq">
+                        <button type="submit" class="btn btn-warning" name="accion" value="actualizarPaq">actualizar</button>
+                    </form>
+                </div>
+                {% endfor %}
+            </form>
+            {% endif %}
+        </div>
+    </div>
+    <br>
+    <br>
+
+</div>
+{% endblock %}

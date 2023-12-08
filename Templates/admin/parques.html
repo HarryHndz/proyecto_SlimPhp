@@ -1,0 +1,114 @@
+{% extends 'main.html' %}
+
+{% block main %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            {% if idActulizar is null %}
+            <h3>Agregar Parques:</h3>
+            <form method="POST" action="agregar" enctype="multipart/form-data">
+                <!-- <div class ="form-group">
+                
+                <label for="txtID">Id</label>
+                <input type="text" required readonly class="form-control" name="txtID"id="txtID" placeholder="Ingrese el id" value="">
+                </div> -->
+
+                <div class = "form-group">
+                <label for="txtNombre">Nombre:</label>
+                <input type="text"  class="form-control" name="txtNombre"id="txtNombre" placeholder="Ingrese el nombre" value="{{datos['txtNombre']}}">
+                </div>
+
+                <div class = "form-group">
+                <label for="txtPrecio">Precio:</label>
+                <input type="text"  class="form-control" name="txtPrecio"id="txtPrecio" placeholder="Ingrese el precio" value="{{datos['txtPrecio']}}">
+                </div>
+                <br>
+
+                <div class = "form-group">
+                <label for="txtDescripcion" class="form-label">Descripción: </label>
+                <textarea  class="form-control" id="txtDescripcion" rows="3" name="txtDescripcion">{{datos['txtDescripcion']}}</textarea>               
+                </div>
+
+                <div class = "form-group">
+                    <label for="imgParque">imagen:</label>
+                    <br>
+                        <img src="./assets/img/{{parqueSeleccionado.imagenParque}}" alt="" width="50" height="50">  
+                    <input type="file" class="form-control" name="imgParque"id="imgParque" placeholder="Ingresa la imagen">
+                </div>
+
+                <br>
+                
+                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                    <button type="submit" class="btn btn-success" name="accion" value="agregar">Agregar</button>
+                </div>
+                
+            </form>
+                {% if vacio %}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Rellene los campos 
+                        <ul>
+                            {% for campo in vacio %}
+                                <li>{{ campo }}</li>
+                            {% endfor %}
+                        </ul>
+                    </strong> 
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endif %}
+
+                {% if imgNula %}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Inserte una imagen</strong> 
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endif %}
+
+            {% else %}
+            <h3>Actualizar Parque:</h3>
+            <form method="POST" action="actualizar" enctype="multipart/form-data">
+                {% for parqueAntes in idActulizar %}
+                <div class ="form-group">
+                <label for="txtID">Id</label>
+                <input type="text" required readonly class="form-control" name="txtID"id="txtID" placeholder="Ingrese el id" value="{{parqueAntes.id_parque}}">
+                </div>
+
+                <div class = "form-group">
+                <label for="txtNombre">Nombre:</label>
+                <input type="text"  class="form-control" name="txtNombre"id="txtNombre" placeholder="Ingrese el nombre" value="{{parqueAntes.nombre}}">
+                </div>
+
+                <div class = "form-group">
+                <label for="txtPrecio">Precio:</label>
+                <input type="text"  class="form-control" name="txtPrecio"id="txtPrecio" placeholder="Ingrese el precio" value="{{parqueAntes.precio}}">
+                </div>
+                <br>
+
+                <div class = "form-group">
+                <label for="txtDescripcion" class="form-label">Descripción: </label>
+                <textarea  class="form-control" id="txtDescripcion" rows="3" name="txtDescripcion">{{parqueAntes.descripcion}}</textarea>               
+                </div>
+
+                <div class = "form-group">
+                    <label for="imgParque">imagen:</label>
+                    <br>
+                        <img src="./assets/img/{{parqueAntes.imagenParque}}" alt="" width="50" height="50">  
+                    <input type="file" class="form-control" name="imgParque"id="imgParque" placeholder="Ingresa la imagen">
+                </div>
+
+                <br>
+                
+                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                    <form method="post" action="actualizar">
+                        <button type="submit" class="btn btn-success" name="accion" value="actualizar">actualizar</button>
+                    </form>
+                </div>
+                {% endfor %}
+            </form>
+
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

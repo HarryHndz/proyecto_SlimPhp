@@ -1,0 +1,69 @@
+{% extends 'main2.html' %}
+
+{% block main %}
+    <link rel="stylesheet" href="./assets/css/Infop.css">
+    <link rel="stylesheet" href="./assets/css/styMap.css">
+    <script src="./assets/js/apiMapas.js"></script>
+    <script src="./assets/js/apiYutu.js"></script>
+        <div id="carouselExampleFade" class="carousel slide carousel-fade">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./assets/carruImg/cam1.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="./assets/carruImg/cam2.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="./assets/carruImg/cam3.jpg" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-8">
+                    <h1 class="titulo" id="direccion">Campeche</h1>
+                    <p class="info">Campeche es un estado con un enorme tesoro, sus edificaciones y su historia constituyen una riqueza cultural que nos da identidad. <br> <br>
+                    Tiene una de las mayores ofertas arqueológicas de México, siendo la Antigua Ciudad Maya y Bosques Tropicales protegidos de Calakmul, Patrimonio Mixto de la Humanidad por la UNESCO. <br>  <br>
+                    La ciudad de San Francisco de Campeche es una joya colonial, una postal de historia, arquitectura y arqueología militar y religiosa, nombrada Patrimonio Cultural de la Humanidad por la UNESCO.
+                    </p>
+                </div>
+                <div class="col-4">
+                    <img src="./assets/carruImg/cam0.jpg" alt="">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="contMapa">
+            <h2 class="titulo2">Para conocer más de Campeche</h2>
+            <div class="mapita">
+                <div id="map" class="map">
+
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <img src="{{apiClima[0]}}" alt="">
+            <p> La temperatura es de : {{apiClima[1]}}</p>
+            <p>La humedad es de: {{apiClima[2]}}</p>
+        </div>
+
+        <div class="container">
+            <h2 class="titulo2">Descubre Campeche:</h2>
+            <div id="player"></div>
+            
+
+        </div>
+        
+        <input id="idVideo" name="prodId" type="hidden" value="{{video}}" />
+        <script async src={{maps}}></script>
+{% endblock %}

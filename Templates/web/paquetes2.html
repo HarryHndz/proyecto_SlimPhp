@@ -1,0 +1,101 @@
+{% extends 'main2.html' %}
+{% block main %}
+<link rel="stylesheet" href="./assets/css/styPaquetes.css">
+<div class="buscadorPaquetes">
+    <h1>Encuentra Los Mejores Paquetes Turisticos</h1>
+    <br>
+    <div class="elegirPaquetes">
+        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+            <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+            <label class="btn btn btn-outline-light" for="btncheck1">Paquetes Familiares</label>
+
+            <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+            <label class="btn btn btn-outline-light" for="btncheck2">Paquetes Individuales</label>
+
+            <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
+            <label class="btn btn btn-outline-light" for="btncheck3">Paquetes Amigos</label>
+        </div>
+    </div>
+</div>
+
+<div class="container text-center">
+    <div class="row">
+        <div class="col-6">
+            <a href=""><img src="./assets/img/huatulco.jpg" class="rounded" alt="..."></a>
+        </div>
+        <div class="col-6">
+            <a href=""><img src="./assets/img/cancun.jpg" class="rounded" alt="..."></a>
+        </div>
+    </div>
+</div>
+
+<br>
+
+
+
+<div class="paquetesDestacados">
+    <h2>Paquetes destacados por los usuarios</h2>
+    {% for datosPaquete in datosPaquetes %}
+    <div class="container text-center">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+        
+            <div class="col">
+                <div class="card h-100">
+                    <img src="./assets/img/{{datosPaquete.imagenPaquete}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{datosPaquete.nombre}}</h5>
+                        <p class="card-text">{{datosPaquete.descripcion}}</p>
+                        <p class="card-text">{{datosPaquete.precio}}</p>
+                        <form action="plantillaPaquete" method="post">
+                            <input type="hidden" name="id_paquete" value="{{ datosPaquete.id_paquete }}">
+                            <button type="submit" class="btn btn-success">Ver detalles</button>
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-body-secondary">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+                
+            </div>
+
+        </div>
+        
+    </div>
+    {% endfor %}
+</div>
+
+<div class="infoPaquetes">
+    <h2 class="titPA">Encuentre los mejores paquetes de viaje para sus vacaciones</h2>
+    <p> En Sureste México te ofrecemos la opción de diseñar tus paquetes de viajes sin tanta complicación.
+    Conocer que es lo que estás comprando te ayudará a planear mejor tus vacaciones, 
+    ahorrar un poco de dinero y saber cuáles servicios adicionales tienes que contratar. 
+    ¿Qué incluye un paquete de viaje? Un paquete vacacional puede incluir dos o más
+    de los siguientes servicios: Hospedaje, Traslados de aeropuerto, actividades y tours. 
+    Los paquetes de viaje son perfectos para quienes buscan ahorrar tiempo y dinero en vacaciones.  
+    </p>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h3>Paquetes de viaje</h3>
+            <a href=""><p>Viajes a Yucatán <br>
+                Viajes a Quintana Roo <br>
+                Viajes a Chiapas <br>
+                Viajes a Campeche <br>
+                Viajes a Tabasco <br>
+            </p></a>
+        </div>
+        <div class="col-6">
+            <h3>Paquetes categoria </h3>
+            <a href=""><p>Paquetes menor precio<br>
+                Paquetes menor precio<br>
+                Paquetes todo incluido<br>
+                Paquetes de temporada<br>
+                paquetes en oferta<br>
+                </p></a>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

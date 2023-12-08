@@ -1,0 +1,79 @@
+{% extends 'main2.html'  %}
+{% block main %}
+<link rel="stylesheet" href="./assets/css/styParques.css">
+<div class="Buscadorparques">
+    <h1>Encuentra El Mejor Hospedaje</h1>
+    <br>
+    <div class="Formparques">
+        <form action="">
+            <input type="text" placeholder="Destino" id="DesHabi" name="">
+            <input type="date" name="" id="fecha" >
+            <button class="Bntparque"><span class="material-symbols-outlined">search</span></button>
+    </form>
+    </div>
+</div>
+<div class="txtAct">
+    <h2>Actividades más solicitadas por los usuarios</h2>
+</div>
+{% for datosParque in datosParques %}
+    <div class="card mb-3" style="max-width: 700px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="./assets/img/{{datosParque.imagenParque}}" class="img-fluid rounded-start" alt="..." style="height: 269px;">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title" >{{datosParque.nombre}}</h5>
+                    <p class="card-text">{{datosParque.descripcion}}</p>
+                    <p class="card-text"><small class="text-body-secondary">{{datosParque.precio}}</small></p>
+                    <form action="plantillaParque" method="post">
+                        <input type="hidden" name="id_parque" value="{{ datosParque.id_parque }}">
+                        <button type="submit" class="btn btn-success">Ver detalles</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+    <div>
+        <h2>Ofertas de temporada</h2>
+    </div>
+
+    <div class="ofertaTemporada">
+        <div class="textoOferta">
+            <p>
+            Obtén el 25% <br>
+            de descuento al pagar <br> 
+            con visa en tu primera <br>
+            reservación.</p>
+        </div>
+        <div class="imgOferta">
+            <img src="./assets/img/delfinOder.jpg" alt="">
+        </div>
+    </div>
+
+    <div class="ofertaTemporada">
+        <div class="imgOferta">
+            <img src="./assets/img/delfinOder.jpg" alt="">
+        </div>
+        <div class="textoOferta">
+            <p>
+            Al comprar 3 entradas,<br> 
+            la 4 es Gratis. <br>
+            Parque Xcaret.</p>
+        </div>
+    </div>
+    <div class="infoAct">
+        <div class="tituloOfer">
+            <h3>Encuentra los mejores Tours y actividades para tus vacaciones </h3>
+        </div>
+        <div class="infoactividades">
+            
+            <p>Encuentra promociones de Tours y Actividades para vivir experiencias <br>
+            inolvidables junto a Sureste México. ¿Prefieres tener todo planificado? <br>
+            Con Sureste México puedes reservar entradas y tickets para eventos y espectáculos. <br>
+            Te ofrecemos una gran variedad de Tours, Actividades, Excursiones <br>
+            y más, para que disfrutes tus viajes al máximo</p>
+        </div>
+    </div>
+{% endblock %}

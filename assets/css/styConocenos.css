@@ -1,0 +1,24 @@
+.portConocenos{
+    background-image:url("/assets/img/hotelofertasini.jpg") no-repeat center fixed;
+    height: 700px;
+    background-size: cover;
+    opacity: 0.8;
+}
+.tituCO{
+    text-align: center;
+    padding-top: 40px;
+}
+.tituConocenos{
+    font-weight: bold;
+    font-size: 120px;
+    color: white;
+}
+
+.titulooconocenos{
+    font-weight: bold;
+    font-size: 60px;
+}
+
+.parrafoconocenos{
+    font-size: 25px;
+}
