@@ -10,7 +10,7 @@ class Administrador extends Eloquent {
         "contraseña"
         ];
     
-
+    protected $primaryKey = 'id_admin';
     public $timestamps = [];
 
 }

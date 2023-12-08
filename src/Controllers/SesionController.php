@@ -1,12 +1,11 @@
 <?php
 
 namespace App\Controllers;
+use App\Models\Administrador;
 use App\Models\Usuarios;
 use Psr\Http\Message\ResponseInterface as Response ;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Views\Twig;
-use Google_Client;
-use Google_Service_Oauth2;
 include("./src/functions/vaciosNull.php");
 
 
@@ -48,6 +47,7 @@ class SesionController {
         }
     }
     
+    
     function validarSesion (Request $request, Response $response, array $args) {
         $view = Twig::fromRequest($request);
         $datosInicio = $request->getParsedBody();
@@ -84,6 +84,58 @@ class SesionController {
         session_start();
         session_destroy();
         return $response->withHeader('Location', 'inicio')->withStatus(302);
+    }
+
+
+
+    function iniciarAdmin (Request $request, Response $response, array $args) {
+        $view = Twig::fromRequest($request);
+        $params = ['categorias' => 'iniciar_sesion'];
+
+        
+        return $view->render($response,'sesionAdmin.html',$params);
+    }
+
+
+
+
+    function sesionAdmin (Request $request, Response $response, array $args) {
+        $view = Twig::fromRequest($request);
+        $datosInicio = $request->getParsedBody();
+        if(esNulo($datosInicio)){
+            $camposVacios = esNulo($datosInicio);
+            $params = ['vacio'=>$camposVacios];
+            return $view->render($response, 'sesionAdmin.html', $params);
+        
+        }else{
+            $user = $datosInicio['usuario'];
+            $contraseña = $datosInicio['contraseña'];
+            session_start();
+            $usuarioEncontrado = Administrador::where('usuario', $user)->first();
+
+            if(($user== $usuarioEncontrado->usuario && $contraseña == $usuarioEncontrado->contraseña)){
+
+                $_SESSION['usuario'] = $usuarioEncontrado;
+                $params = ['sesion'=>$_SESSION['usuario']];
+                return $view->render($response,'home.html',$params);
+
+            }elseif(($user!= $usuarioEncontrado->usuario && $contraseña != $usuarioEncontrado->contraseña)
+            || ($user!= $usuarioEncontrado->usuario || $contraseña != $usuarioEncontrado->contraseña)){
+
+                $message = 'error el usuario o contraseña son incorrectos';
+                $params = ['msgError'=>$message, 'data'=>$datosInicio];
+                return $view->render($response, 'sesionAdmin.html', $params);
+        
+            }
+        }
+        
+    }
+
+
+    function cerrarSesionAdmin (Request $request, Response $response, array $args) {
+        session_start();
+        session_destroy();
+        return $response->withHeader('Location', 'iniciarAdmin')->withStatus(302);
     }
 
     

@@ -1,6 +1,6 @@
 .bus{
     height: 500px;
-    background: url(./img/xcare.jpg) no-repeat center fixed;
+    background: url(../img/xcare.jpg);
     background-size: cover;
     margin-bottom: 20px;
 }

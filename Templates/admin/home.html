@@ -2,20 +2,23 @@
 
 {% block main %}
 <div class="container">
+    {% if sesion is not null %}
     <div class="row">
         <div class="cold-md-12">
             <div class="jumbotron">
-                <h1 class="display-3">Bienvenido Harry</h1>
+                <h1 class="display-3">Bienvenido {{sesion.usuario}}</h1>
                 <p class="lead">Administrador</p>
                 <hr class="my-2">
                 <p>Sitio oficial para los administradores del sitio web "Ruta Maya". <br>
                 Hospedaje, Parques, Paquetes y mucho más.
                 </p>
                 <p class="lead">
-                    <a class="btn btn-primary btn-lg" href="#" role="button">Conoce más</a>
+                    <a class="btn btn-primary btn-lg" href="cerrarSesionAdmin" role="button">Cerrar sesión</a>
                 </p>
             </div>
         </div>
     </div>
+    {% endif %}
 </div>
+
 {% endblock %}

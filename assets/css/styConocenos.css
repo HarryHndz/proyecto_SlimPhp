@@ -1,5 +1,5 @@
 .portConocenos{
-    background-image:url("/assets/img/hotelofertasini.jpg") no-repeat center fixed;
+    background-image:url(../img/hotelofertasini.jpg);
     height: 700px;
     background-size: cover;
     opacity: 0.8;

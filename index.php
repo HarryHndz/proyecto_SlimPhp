@@ -113,15 +113,11 @@ $app->post('/validarSesion',SesionController::class .':validarSesion');
 $app->get('/registrarUsuario',SesionController::class .':registrarse');
 $app->post('/agregarUser',SesionController::class .':agregarUser');
 
-$app->get('/sesionGoogle',SesionController::class .':sesionGoogle');
-
-
+$app->get('/iniciarAdmin',SesionController::class .':iniciarAdmin');
+$app->post('/validarSesionAdmin',SesionController::class .':sesionAdmin');
+$app->get('/cerrarSesionAdmin',SesionController::class .':cerrarSesionAdmin');
 $app->run();
-//nombre del cliente : harry
-//id del cliente
-// 79658555315-grl4hb05ikr38foqe5t3kmvfveafa041.apps.googleusercontent.com
-//secreto o key del cliente
-// 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
+
 ?>
 
 

@@ -12,7 +12,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background:url(../imgPro/portadaConocenos.jpg) no-repeat  center fixed;
+    background:url(../img/portadaConocenos.jpg);
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
