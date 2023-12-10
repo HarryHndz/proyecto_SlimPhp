@@ -1,0 +1,28 @@
+{% extends 'main2.html' %}
+{% block main %}
+<h1>resultadosss:</h1>
+{% if resultado %}
+<div class="listaHoteles">
+    <h3>Los mejores hoteles del Sureste de México</h3>
+    {% for datosTodo in resultado %}
+    <div class="card mb-3" style="max-width: 700px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="./assets/img/{{datosTodo.ruta_imagen}}" class="img-fluid rounded-start" alt="..." style="height: 269px;">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title" >{{datosTodo.nombre}}</h5>
+                    <p class="card-text">{{datosTodo.descripcion}}</p>
+                    <p class="card-text"><small class="text-body-secondary">{{datosTodo.precio}}</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<p>no se encontro nada </p>
+{% endif %}
+
+{% endblock %}

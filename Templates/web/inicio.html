@@ -5,7 +5,7 @@
 <script src="./assets/js/apiMapas.js"></script>
 <div class="bus">
     <h1>¿Qué lugares deseas visitar?</h1>
-    <form action="" method="GET" role="search">
+    <form action="buscar" method="Post" role="search">
         <input type="text" placeholder="Encuentra los mejores lugares" class="busca" name="busqueda">
         <button class="btnbus" type="submit" ><span class="material-symbols-outlined">search</span></button>
     </form>
@@ -26,6 +26,13 @@
             
             </div>
         </div>
+        {% if vacioo %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>{{vacioo}}</strong> 
+            <strong>{{dato}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
 
         <div class="col-3">
             <div class="card" style="width: 18rem;">

@@ -31,12 +31,7 @@
     margin-left: 20px;
 }
 
-.container{
-    background: url(../imgPro/hotelofertasini.jpg) no-repeat center !important;
-    height: 600px !important;
-    background-size: cover !important ;
-    border-radius: 20px !important;
-}
+
 
 .infoHotel{
     padding-top: 150px;

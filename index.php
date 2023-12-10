@@ -1,4 +1,5 @@
 <?php 
+use App\Controllers\BuscarController;
 use App\Controllers\ConocenosController;
 use App\Controllers\EventosController;
 use App\Controllers\HotelesWebController;
@@ -83,6 +84,9 @@ $app->get('/conocenos',ConocenosController::class .':index');
 $app->get('/eventos', EventosController::class .':index');
 
 $app->get('/inicio',InicioController::class .':index');
+
+$app->post('/buscar', BuscarController::class .':busqueda');
+
 
 $app->get('/playas',PlayasController::class .':index');
 $app->get('/tabasco',PlayasController::class .':tabasco');
